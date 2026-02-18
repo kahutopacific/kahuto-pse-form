@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kahuto Pacific — Project Scope & Execution Form</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230e4a3a'/><text x='50%25' y='55%25' font-size='18' text-anchor='middle' dominant-baseline='middle' fill='%23d4a853' font-weight='bold'>K</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --g:#0e4a3a;--gl:#1a6b54;--gxl:#e8f0ed;
+      --gold:#d4a853;--gold-l:#faf3e0;
+      --bg:#f4f5f4;--white:#fff;
+      --tx:#1a1f1e;--tx-s:#4a5654;--tx-xs:#8a9593;
+      --bd:#dfe4e2;--bd-l:#eef1ef;
+      --r:10px;--rl:14px;
+      --sh:0 1px 3px rgba(14,74,58,.06);--shm:0 4px 16px rgba(14,74,58,.08);
+    }
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;line-height:1.5}
+    ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#c5cac8;border-radius:3px}
+    button,input,select,textarea{font-family:inherit}
+    button{cursor:pointer;border:none;-webkit-tap-highlight-color:transparent}
+
+    .hdr{background:linear-gradient(145deg,#082e24,var(--g) 40%,var(--gl));position:relative;overflow:hidden}
+    .hdr::before{content:'';position:absolute;top:-40%;right:-15%;width:400px;height:400px;background:radial-gradient(circle,rgba(212,168,83,.1),transparent 70%);pointer-events:none}
+    .hdr-in{max-width:760px;margin:0 auto;padding:28px 24px 20px;position:relative;z-index:1}
+    .brand{font-size:10px;letter-spacing:4px;color:var(--gold);font-weight:700;text-transform:uppercase}
+    .hdr h1{font-family:'Fraunces',serif;font-weight:800;font-size:24px;color:#fff;margin:6px 0 0;letter-spacing:-.5px}
+    .hdr-sub{font-size:13px;color:rgba(255,255,255,.5);margin-top:4px}
+    .gold-rule{height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:16px;border-radius:1px}
+
+    .tabs{background:var(--white);border-bottom:1px solid var(--bd);padding:0 24px;overflow-x:auto}
+    .tabs-in{max-width:760px;margin:0 auto;display:flex}
+    .tab{padding:13px 14px;background:none;color:var(--tx-xs);font-weight:500;font-size:12px;white-space:nowrap;border-bottom:2.5px solid transparent;transition:.2s}
+    .tab:hover{color:var(--tx-s)}.tab.on{color:var(--g);font-weight:700;border-bottom-color:var(--g)}
+    .tab .n{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;font-size:10px;font-weight:700;margin-right:5px;background:var(--bd-l);color:var(--tx-xs);transition:.2s}
+    .tab.on .n{background:var(--g);color:#fff}
+
+    .wrap{max-width:760px;margin:0 auto;padding:20px 24px 120px}
+
+    .card{background:var(--white);border:1px solid var(--bd);border-radius:var(--rl);padding:22px 26px;margin-bottom:16px;box-shadow:var(--sh)}
+    .ct{font-size:15px;font-weight:700;color:var(--g);display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid var(--bd-l)}
+    .ct .ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;background:var(--gxl)}
+
+    .fr{display:flex;flex-wrap:wrap;gap:14px}
+    .fd{flex:1 1 100%;min-width:0}.fd.h{flex:1 1 calc(50% - 7px);min-width:220px}
+    .fl{display:block;font-size:11px;font-weight:600;color:var(--tx-s);margin-bottom:4px;text-transform:uppercase;letter-spacing:.6px}
+    .fl .rq{color:#c53030;margin-left:2px}
+    .fd input,.fd select,.fd textarea{width:100%;padding:10px 14px;border:1.5px solid var(--bd);border-radius:var(--r);font-size:14px;background:#fafbfb;color:var(--tx);outline:0;transition:.15s}
+    .fd input:focus,.fd select:focus,.fd textarea:focus{border-color:var(--g);background:#fff;box-shadow:0 0 0 3px rgba(14,74,58,.08)}
+    .fd textarea{resize:vertical;min-height:56px}.fd input::placeholder,.fd textarea::placeholder{color:#b5bfbc}
+
+    .cg{display:flex;flex-wrap:wrap;gap:7px}
+    .ch{padding:7px 15px;border-radius:8px;font-size:13px;font-weight:500;border:1.5px solid var(--bd);background:var(--white);color:var(--tx-s);transition:.15s;user-select:none}
+    .ch:hover{border-color:#b8cdc5;background:#f8fbfa}
+    .ch.on{border-color:var(--g);background:var(--gxl);color:var(--g);font-weight:600}
+    .ch.on::before{content:'✓ ';font-weight:700}
+
+    .pr{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--bd-l);gap:12px;flex-wrap:wrap}
+    .pr:last-of-type{border-bottom:none}
+    .pr-l{font-size:13px;color:var(--tx);flex:1 1 200px}
+    .pr-bs{display:flex;gap:5px}
+    .pb{padding:5px 12px;border-radius:6px;font-size:11px;font-weight:600;border:1.5px solid var(--bd);background:var(--white);color:var(--tx-xs);transition:.15s}
+    .pb.a{border:none;background:var(--g);color:#fff}
+    .pb.p{border:none;background:#b7791f;color:#fff}
+    .pb.nr{border:none;background:#6b7c78;color:#fff}
+
+    .sl{font-size:11px;font-weight:700;color:var(--tx-xs);text-transform:uppercase;letter-spacing:.7px;margin:0 0 8px}
+    .hint{font-size:12.5px;color:var(--tx-xs);margin-bottom:12px}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--r);font-size:14px;font-weight:600;transition:.15s}
+    .btn-p{background:var(--g);color:#fff}.btn-p:hover{background:#0b3d30;box-shadow:var(--shm)}
+    .btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:#c09930}
+    .btn-o{background:var(--white);color:var(--g);border:1.5px solid var(--g)}.btn-o:hover{background:var(--gxl)}
+    .btn-gh{background:transparent;color:var(--tx-s);border:1.5px solid var(--bd)}.btn-gh:hover{background:#f0f2f1}
+    .btn:disabled{opacity:.4;cursor:not-allowed}
+    .btn-lg{padding:14px 28px;font-size:15px;font-weight:700;border-radius:12px}
+
+    .fnav{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--bd);padding:12px 24px;z-index:50;box-shadow:0 -2px 10px rgba(0,0,0,.04)}
+    .fnav-in{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+
+    .ib{padding:14px 18px;border-radius:var(--r);font-size:13px;line-height:1.6}
+    .ib.gr{background:#edf5f1;border:1px solid #c8ddd3;color:var(--g)}
+
+    .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);padding:12px 24px;border-radius:10px;font-size:13px;font-weight:600;z-index:100;box-shadow:0 8px 32px rgba(14,74,58,.15);animation:fu .3s}
+    .toast.ok{background:var(--g);color:#fff}.toast.err{background:#c53030;color:#fff}
+    @keyframes fu{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+    @media(max-width:640px){
+      .hdr-in{padding:22px 18px 16px}.hdr h1{font-size:20px}
+      .wrap{padding:16px 16px 120px}.card{padding:18px 18px}
+      .fd.h{flex:1 1 100%;min-width:0}.tab{padding:12px 8px;font-size:11px}
+      .tab .n{width:17px;height:17px;font-size:9px;margin-right:3px}
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+  <script type="text/babel">
+    const{useState}=React;const E=React.createElement;
+
+    // ═══════════════════════════════════════
+    //  FORM OPTIONS
+    // ═══════════════════════════════════════
+    const STEPS=["Project Info","Survey Type","Field Works","Deliverables","Permits","Variations","Team & Export"];
+    const SURVEY_TYPES=["Topographic Survey","Utility Detection (Subsurface)","Terrestrial Laser Scan","UAV LiDAR","Photogrammetry","Ground Control Survey","Asset Mapping"];
+    const CTRL=["Establish control network","Validate existing benchmark","GNSS RTK setup","Total station setup","Base station logging","Coordinate transformation required"];
+    const TOPO=["Buildings (edges & footprints)","Walls & fences","Property boundaries","Roads (edges, kerbs, line marking)","Drainage structures (culverts, pits, swales)","Waterways (top & bottom of bank)","Vegetation (tree locations & dripline)","Overhead power lines","Poles & vertical assets","Utility pit lids & invert levels"];
+    const SUBMETH=["Electromagnetic Locate (EMI/EML)","Ground Penetrating Radar (GPR)","Spray marking","Pit chamber inspection","Invert level capture","Utility attribute capture","Potholing (if approved variation)"];
+    const QLO=["QL-A","QL-B","QL-C","QL-D"];
+    const AUTH=["WAF","EFL","Telecom Fiji","Digicel","FINTEL","FRA"];
+    const SCITEMS=["Exterior building scan","Interior scan","Surrounding terrain"];
+    const SCFMT=["RCP","LAS","E57"];
+    const DELIV=["CAD Drawing (DWG)","GIS Package","PDF Plans","2D Orthomosaic","Digital Terrain Model (DTM)","Digital Surface Model (DSM)","TIN Model","Classified Point Cloud","Canopy Height Model","Utility Attribute Table","QA/QC Report","Survey Report","Metadata File","Aerial Base Map"];
+    const CINT=["0.1m","0.2m","0.5m","1m"];
+    const PERMS=["Land Access Approval","Traffic Management Plan (TMP)","FRA Corridor Permit","CAAF Approval","NOTAM","Utility Authority Notifications","Owner / Lessee Consent"];
+    const VARS=["Additional field day","Additional processing day","Expanded boundary area","Additional deliverables","Potholing","Re-mobilisation","Re-processing due to client changes","Delay due to incomplete information"];
+    const CORDS=["Fiji Map Grid (FMG)","WGS84 UTM Zone 60S","WGS84 Geographic","Other"];
+    const VDATS=["Fiji MSL","EGM96","EGM2008","Ellipsoidal","Other"];
+
+    // ═══════════════════════════════════════
+    //  PDF — Opens in new window, ready to save
+    // ═══════════════════════════════════════
+    function generatePDF(d) {
+      const cs=d.coordSystem==="Other"?d.coordOther:d.coordSystem;
+      const vd=d.vertDatum==="Other"?d.vertOther:d.vertDatum;
+      const ht=(d.surveyTypes||[]).some(s=>["Topographic Survey","Photogrammetry","UAV LiDAR"].includes(s));
+      const hs=(d.surveyTypes||[]).includes("Utility Detection (Subsurface)");
+      const hl=(d.surveyTypes||[]).includes("Terrestrial Laser Scan");
+      const chk=a=>(a||[]).map(i=>'<div style="padding:2px 0;font-size:10.5px;color:#1a1f1e;"><span style="color:#0e4a3a;font-weight:700;margin-right:5px;">&#10003;</span>'+i+'</div>').join("");
+      const row=(l,v)=>v?'<tr><td style="padding:7px 14px;font-weight:600;color:#4a5654;font-size:10.5px;width:170px;border-bottom:1px solid #eef1ef;vertical-align:top;">'+l+'</td><td style="padding:7px 14px;font-size:10.5px;border-bottom:1px solid #eef1ef;color:#1a1f1e;">'+v+'</td></tr>':"";
+      const chip=items=>(items||[]).map(s=>'<span style="display:inline-block;padding:3px 10px;border-radius:5px;background:#e8f0ed;color:#0e4a3a;font-size:9.5px;font-weight:600;border:1px solid #c8ddd3;margin:2px 3px 2px 0;">'+s+'</span>').join("");
+      const pi=s=>s==="Approved"?"&#10003;":s==="Pending"?"&#9711;":"&#8212;";
+      const note=v=>v?'<div style="background:#f4f5f4;border:1px solid #dfe4e2;border-radius:6px;padding:7px 12px;font-size:10px;color:#4a5654;margin-top:5px;"><b>Notes:</b> '+v+'</div>':"";
+      const today=new Date().toLocaleDateString("en-FJ",{year:"numeric",month:"long",day:"numeric"});
+      const sec=(n,t)=>'<div style="font-size:12px;font-weight:700;color:#0e4a3a;border-bottom:2px solid #0e4a3a;padding-bottom:4px;margin:20px 0 10px;">'+n+'. '+t+'</div>';
+      const sub=t=>'<div style="font-size:10.5px;font-weight:700;color:#1a6b54;margin:12px 0 5px;">'+t+'</div>';
+
+      const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>PSE - ${d.projectName||"Form"}</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;color:#1a1f1e;font-size:10.5px;line-height:1.55;background:#fff;}
+  @page{size:A4;margin:16mm 20mm 18mm 20mm;}
+  @media print{.no-print{display:none!important;}body{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+  table{width:100%;border-collapse:collapse;}
+</style></head><body style="padding:16mm 20mm;">
+
+<!-- Header -->
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+  <div>
+    <div style="font-size:9px;letter-spacing:4px;color:#d4a853;font-weight:700;text-transform:uppercase;">Kahuto Pacific Limited</div>
+    <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:#0e4a3a;line-height:1.2;margin-top:4px;">Project Scope &amp; Execution Form</div>
+  </div>
+  <div style="text-align:right;font-size:10px;color:#8a9593;line-height:1.7;">
+    ${d.projectCode?'<div style="font-size:14px;font-weight:700;color:#0e4a3a;font-family:monospace;">'+d.projectCode+'</div>':''}
+    <div>${today}</div>
+    ${d.preparedBy?'<div>Prepared by: <b style="color:#1a1f1e;">'+d.preparedBy+'</b></div>':''}
+  </div>
+</div>
+<div style="height:3px;background:linear-gradient(90deg,#d4a853 0%,#0e4a3a 40%,#0e4a3a 100%);border-radius:2px;margin:10px 0 4px;"></div>
+
+<!-- 1. Project Info -->
+${sec(1,"Project Information")}
+<table>${row("Project Name",d.projectName)}${row("Project Code",d.projectCode)}${row("Client Name",d.clientName)}${row("Client Contact",d.clientContact)}${row("Project Manager",d.projectManager)}${row("Site Location",d.siteLocation)}${row("Contract Ref",d.contractRef)}${row("Start Date",d.startDate)}${row("Completion Date",d.completionDate)}${row("Coordinate System",cs)}${row("Vertical Datum",vd)}</table>
+
+<!-- 2. Survey Type -->
+${sec(2,"Survey Type")}
+<div style="margin:4px 0;">${chip(d.surveyTypes)}${d.surveyOther?chip([d.surveyOther]):""}</div>
+
+<!-- 3. Field Works -->
+${sec(3,"Scope of Field Works")}
+${(d.controlItems||[]).length?sub("A. Control &amp; Setup")+chk(d.controlItems)+note(d.controlNotes):""}
+${ht?sub("B. Topographic Survey")+(d.groundLevels?'<div style="padding:2px 0;">Ground levels at <b>'+d.groundLevels+'m</b> intervals</div>':'')+(d.contourInterval?'<div style="padding:2px 0;">Contours at <b>'+d.contourInterval+'m</b></div>':'')+chk(d.topoItems)+note(d.topoNotes):""}
+${hs?sub("C. Subsurface Utility Detection")+chk(d.subsurfaceMethods)+((d.qlLevel||[]).length?'<div style="padding:3px 0;"><b>Quality Level:</b> '+d.qlLevel.join(", ")+'</div>':"")+((d.authorities||[]).length?'<div style="padding:3px 0;"><b>Authorities:</b> '+[...d.authorities,...(d.authOther?[d.authOther]:[])].join(", ")+'</div>':"")+note(d.subsurfaceNotes):""}
+${hl?sub("D. Laser Scanning")+chk(d.scanItems)+(d.scanResolution?'<div style="padding:2px 0;"><b>Resolution:</b> '+d.scanResolution+'</div>':"")+((d.scanFormats||[]).length?'<div style="padding:2px 0;"><b>Output:</b> '+[...d.scanFormats,...(d.scanFormatOther?[d.scanFormatOther]:[])].join(", ")+'</div>':"")+note(d.scanNotes):""}
+
+<!-- 4. Deliverables -->
+${sec(4,"Deliverables Required")}
+<div style="margin:4px 0;">${chip(d.deliverables)}${(d.contourDel||[]).length?chip(["Contours: "+d.contourDel.join(", ")]):""}</div>
+${d.specialReqs?note(d.specialReqs):""}
+
+<!-- 5. Permits -->
+${sec(5,"Permits &amp; Approvals")}
+<table>${PERMS.map(p=>{const st=(d.permitStatuses||{})[p]||"Not Required";const bg=st==="Approved"?"#e8f0ed":st==="Pending"?"#fefbeb":"#f4f5f4";const col=st==="Approved"?"#0e4a3a":st==="Pending"?"#b7791f":"#8a9593";return'<tr><td style="padding:5px 12px;font-size:10.5px;border-bottom:1px solid #eef1ef;">'+p+'</td><td style="padding:5px 12px;font-size:10px;font-weight:600;text-align:center;width:100px;background:'+bg+';color:'+col+';border-radius:4px;border-bottom:1px solid #eef1ef;">'+pi(st)+' '+st+'</td></tr>';}).join("")}</table>
+${note(d.permitNotes)}
+
+<!-- 6. Variations -->
+${(d.variations||[]).length?sec(6,"Variation Triggers")+chk(d.variations)+(d.variationRef?'<div style="margin-top:4px;"><b>Ref:</b> '+d.variationRef+'</div>':""):""}
+
+<!-- 7. Team -->
+${sec(7,"Team Allocation")}
+<table>${row("Project Manager",d.teamPM)}${row("Field Team Lead",d.fieldLead)}${row("Utility Specialist",d.utilitySpec)}${row("Laser Scan Operator",d.scanOp)}${row("Processing Lead",d.processLead)}${row("QA Reviewer",d.qaReviewer)}${row("Subcontractors",d.subcontractors)}</table>
+
+<!-- 8. Authorisation -->
+${sec(8,"Authorisation")}
+<div style="display:flex;gap:40px;margin-top:16px;">
+  <div style="flex:1;">
+    <div style="font-size:11px;font-weight:600;min-height:16px;">${d.preparedBy||""}</div>
+    <div style="border-bottom:1.5px solid #8a9593;height:30px;margin-bottom:4px;"></div>
+    <div style="font-size:9.5px;color:#8a9593;">Prepared By</div>
+    <div style="font-size:9px;color:#b5bfbc;margin-top:2px;">Date: ${d.prepDate||"_______________"}</div>
+  </div>
+  <div style="flex:1;">
+    <div style="font-size:11px;font-weight:600;min-height:16px;">${d.approvedBy||""}</div>
+    <div style="border-bottom:1.5px solid #8a9593;height:30px;margin-bottom:4px;"></div>
+    <div style="font-size:9.5px;color:#8a9593;">Approved By</div>
+    <div style="font-size:9px;color:#b5bfbc;margin-top:2px;">Date: _______________</div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div style="text-align:center;color:#b5bfbc;font-size:8.5px;margin-top:28px;padding-top:10px;border-top:1px solid #dfe4e2;">
+  Kahuto Pacific Limited &middot; Suva, Fiji &middot; Project Scope &amp; Execution Form &middot; ${today}
+</div>
+
+<!-- Print Button -->
+<div class="no-print" style="text-align:center;margin:36px 0;padding:24px;background:#f4f5f4;border-radius:12px;">
+  <p style="font-size:15px;color:#1a1f1e;font-weight:700;margin-bottom:6px;">Save as PDF</p>
+  <p style="font-size:12px;color:#8a9593;margin-bottom:16px;">Press <b>Ctrl+P</b> (or Cmd+P on Mac) and select <b>"Save as PDF"</b></p>
+  <button onclick="window.print()" style="padding:14px 36px;border-radius:10px;border:none;background:#0e4a3a;color:#fff;font-weight:700;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif;">Save as PDF</button>
+</div>
+
+</body></html>`;
+
+      const w = window.open("","_blank");
+      if (w) { w.document.write(html); w.document.close(); }
+    }
+
+    // ═══════════════════════════════════════
+    //  UI COMPONENTS
+    // ═══════════════════════════════════════
+    function Card({title,icon,children}){return E("div",{className:"card"},title&&E("div",{className:"ct"},E("div",{className:"ic"},icon),title),children)}
+    function Fd({label,value,onChange,placeholder,type,half,required}){return E("div",{className:"fd"+(half?" h":"")},E("label",{className:"fl"},label,required&&E("span",{className:"rq"}," *")),E("input",{type:type||"text",value:value||"",placeholder:placeholder||"",onChange:e=>onChange(e.target.value)}))}
+    function Ta({label,value,onChange,placeholder,rows}){return E("div",{className:"fd"},E("label",{className:"fl"},label),E("textarea",{value:value||"",placeholder,rows:rows||2,onChange:e=>onChange(e.target.value)}))}
+    function Sel({label,value,onChange,options,half}){return E("div",{className:"fd"+(half?" h":"")},E("label",{className:"fl"},label),E("select",{value,onChange:e=>onChange(e.target.value)},E("option",{value:""},"Select..."),options.map(o=>E("option",{key:o,value:o},o))))}
+    function CG({items,selected,toggle}){return E("div",{className:"cg"},items.map(i=>E("button",{key:i,type:"button",className:"ch"+(selected.includes(i)?" on":""),onClick:()=>toggle(i)},i)))}
+    function PR({label,status,onChange}){return E("div",{className:"pr"},E("span",{className:"pr-l"},label),E("div",{className:"pr-bs"},["Approved","Pending","Not Required"].map(s=>E("button",{key:s,type:"button",className:"pb"+(status===s?(s==="Approved"?" a":s==="Pending"?" p":" nr"):""),onClick:()=>onChange(s)},s))))}
+
+    // ═══════════════════════════════════════
+    //  MAIN APP
+    // ═══════════════════════════════════════
+    function App(){
+      const[step,setStep]=useState(0);
+      const[toast,setToast]=useState(null);
+      const show=(m,t)=>{setToast({m,t});setTimeout(()=>setToast(null),3000)};
+
+      const[f,setF]=useState({
+        projectName:"",projectCode:"",clientName:"",clientContact:"",projectManager:"",siteLocation:"",contractRef:"",startDate:"",completionDate:"",coordSystem:"",coordOther:"",vertDatum:"",vertOther:"",
+        surveyTypes:[],surveyOther:"",controlItems:[],controlNotes:"",groundLevels:"",contourInterval:"",topoItems:[],topoNotes:"",
+        subsurfaceMethods:[],qlLevel:[],authorities:[],authOther:"",subsurfaceNotes:"",scanItems:[],scanResolution:"",scanFormats:[],scanFormatOther:"",scanNotes:"",
+        deliverables:[],contourDel:[],specialReqs:"",permitStatuses:Object.fromEntries(PERMS.map(p=>[p,"Not Required"])),permitNotes:"",
+        variations:[],variationRef:"",teamPM:"",fieldLead:"",utilitySpec:"",scanOp:"",processLead:"",qaReviewer:"",subcontractors:"",
+        preparedBy:"",prepDate:"",approvedBy:"",
+      });
+      const s=(k,v)=>setF(p=>({...p,[k]:v}));
+      const tog=k=>item=>setF(p=>{const a=p[k]||[];return{...p,[k]:a.includes(item)?a.filter(x=>x!==item):[...a,item]}});
+
+      const showT=f.surveyTypes.some(t=>["Topographic Survey","Photogrammetry","UAV LiDAR"].includes(t));
+      const showS=f.surveyTypes.includes("Utility Detection (Subsurface)");
+      const showL=f.surveyTypes.includes("Terrestrial Laser Scan");
+
+      const handleDownload=()=>{
+        if(!f.projectName){show("Please enter a Project Name in Step 1","err");return;}
+        generatePDF(f);
+        show("PDF opened in new tab - save from there","ok");
+      };
+
+      const reset=()=>{setF({projectName:"",projectCode:"",clientName:"",clientContact:"",projectManager:"",siteLocation:"",contractRef:"",startDate:"",completionDate:"",coordSystem:"",coordOther:"",vertDatum:"",vertOther:"",surveyTypes:[],surveyOther:"",controlItems:[],controlNotes:"",groundLevels:"",contourInterval:"",topoItems:[],topoNotes:"",subsurfaceMethods:[],qlLevel:[],authorities:[],authOther:"",subsurfaceNotes:"",scanItems:[],scanResolution:"",scanFormats:[],scanFormatOther:"",scanNotes:"",deliverables:[],contourDel:[],specialReqs:"",permitStatuses:Object.fromEntries(PERMS.map(p=>[p,"Not Required"])),permitNotes:"",variations:[],variationRef:"",teamPM:"",fieldLead:"",utilitySpec:"",scanOp:"",processLead:"",qaReviewer:"",subcontractors:"",preparedBy:"",prepDate:"",approvedBy:""});setStep(0);show("Form reset","ok")};
+
+      const progress=((step+1)/STEPS.length)*100;
+
+      // ── STEPS ──
+      const sc=[
+        // 0: Project Info
+        ()=>E(React.Fragment,null,
+          E(Card,{title:"Project Details",icon:"📋"},E("div",{className:"fr"},
+            E(Fd,{label:"Project Name",value:f.projectName,onChange:v=>s("projectName",v),placeholder:"e.g. Kings Road Corridor Survey",half:true,required:true}),
+            E(Fd,{label:"Project Code",value:f.projectCode,onChange:v=>s("projectCode",v),placeholder:"e.g. KP-2026-031",half:true}),
+            E(Fd,{label:"Client Name",value:f.clientName,onChange:v=>s("clientName",v),placeholder:"e.g. Fiji Roads Authority",half:true}),
+            E(Fd,{label:"Client Contact",value:f.clientContact,onChange:v=>s("clientContact",v),placeholder:"Name / phone / email",half:true}),
+            E(Fd,{label:"Project Manager",value:f.projectManager,onChange:v=>s("projectManager",v),placeholder:"Kahuto PM",half:true}),
+            E(Fd,{label:"Site Location",value:f.siteLocation,onChange:v=>s("siteLocation",v),placeholder:"e.g. Suva CBD, Viti Levu",half:true}),
+            E(Fd,{label:"Contract Ref / Proposal ID",value:f.contractRef,onChange:v=>s("contractRef",v),placeholder:"e.g. PROP-2026-015",half:true}),
+          )),
+          E(Card,{title:"Schedule",icon:"📅"},E("div",{className:"fr"},
+            E(Fd,{label:"Start Date",value:f.startDate,onChange:v=>s("startDate",v),type:"date",half:true}),
+            E(Fd,{label:"Completion Date",value:f.completionDate,onChange:v=>s("completionDate",v),type:"date",half:true}),
+          )),
+          E(Card,{title:"Coordinate Reference",icon:"🌐"},E("div",{className:"fr"},
+            E(Sel,{label:"Horizontal Coordinate System",value:f.coordSystem,onChange:v=>s("coordSystem",v),options:CORDS,half:true}),
+            E(Sel,{label:"Vertical Datum",value:f.vertDatum,onChange:v=>s("vertDatum",v),options:VDATS,half:true}),
+            f.coordSystem==="Other"&&E(Fd,{label:"Specify System",value:f.coordOther,onChange:v=>s("coordOther",v),half:true}),
+            f.vertDatum==="Other"&&E(Fd,{label:"Specify Datum",value:f.vertOther,onChange:v=>s("vertOther",v),half:true}),
+          )),
+        ),
+        // 1: Survey Type
+        ()=>E(Card,{title:"Survey Type",icon:"🎯"},
+          E("p",{className:"hint"},"Select all applicable types. Field Works (Step 3) will adapt automatically."),
+          E(CG,{items:SURVEY_TYPES,selected:f.surveyTypes,toggle:tog("surveyTypes")}),
+          E("div",{style:{marginTop:16}},E(Fd,{label:"Other (specify)",value:f.surveyOther,onChange:v=>s("surveyOther",v)})),
+        ),
+        // 2: Field Works
+        ()=>E(React.Fragment,null,
+          E(Card,{title:"Control & Setup",icon:"📡"},
+            E(CG,{items:CTRL,selected:f.controlItems,toggle:tog("controlItems")}),
+            E("div",{style:{marginTop:14}},E(Ta,{label:"Notes",value:f.controlNotes,onChange:v=>s("controlNotes",v)})),
+          ),
+          showT&&E(Card,{title:"Topographic Survey",icon:"🗺️"},
+            E("div",{className:"fr",style:{marginBottom:16}},
+              E(Fd,{label:"Ground Levels Interval (m)",value:f.groundLevels,onChange:v=>s("groundLevels",v),placeholder:"e.g. 10",half:true}),
+              E(Fd,{label:"Contour Interval (m)",value:f.contourInterval,onChange:v=>s("contourInterval",v),placeholder:"e.g. 0.5",half:true}),
+            ),
+            E("div",{className:"sl"},"Features to capture"),
+            E(CG,{items:TOPO,selected:f.topoItems,toggle:tog("topoItems")}),
+            E("div",{style:{marginTop:14}},E(Ta,{label:"Additional Instructions",value:f.topoNotes,onChange:v=>s("topoNotes",v)})),
+          ),
+          showS&&E(Card,{title:"Subsurface Utility Detection",icon:"⚡"},
+            E("div",{className:"sl"},"Detection Methods"),
+            E(CG,{items:SUBMETH,selected:f.subsurfaceMethods,toggle:tog("subsurfaceMethods")}),
+            E("div",{style:{marginTop:16}},E("div",{className:"sl"},"Quality Level"),E(CG,{items:QLO,selected:f.qlLevel,toggle:tog("qlLevel")})),
+            E("div",{style:{marginTop:16}},E("div",{className:"sl"},"Authorities to Notify"),E(CG,{items:AUTH,selected:f.authorities,toggle:tog("authorities")}),E("div",{style:{marginTop:10}},E(Fd,{label:"Other Authority",value:f.authOther,onChange:v=>s("authOther",v)}))),
+            E("div",{style:{marginTop:14}},E(Ta,{label:"Notes",value:f.subsurfaceNotes,onChange:v=>s("subsurfaceNotes",v)})),
+          ),
+          showL&&E(Card,{title:"Laser Scanning",icon:"📐"},
+            E(CG,{items:SCITEMS,selected:f.scanItems,toggle:tog("scanItems")}),
+            E("div",{className:"fr",style:{marginTop:16}},E(Fd,{label:"Scan Resolution",value:f.scanResolution,onChange:v=>s("scanResolution",v),placeholder:"e.g. 3mm @ 10m",half:true})),
+            E("div",{style:{marginTop:16}},E("div",{className:"sl"},"Output Format"),E(CG,{items:SCFMT,selected:f.scanFormats,toggle:tog("scanFormats")}),E("div",{style:{marginTop:10}},E(Fd,{label:"Other Format",value:f.scanFormatOther,onChange:v=>s("scanFormatOther",v)}))),
+            E("div",{style:{marginTop:14}},E(Ta,{label:"Notes",value:f.scanNotes,onChange:v=>s("scanNotes",v)})),
+          ),
+          !showT&&!showS&&!showL&&E("div",{className:"ib gr",style:{textAlign:"center"}},E("span",{style:{fontSize:24,display:"block",marginBottom:6}},"💡"),"Select survey types in Step 2 to see relevant field work sections."),
+        ),
+        // 3: Deliverables
+        ()=>E(Card,{title:"Deliverables Required",icon:"📦"},
+          E("p",{className:"hint"},"Select all client-required deliverables."),
+          E(CG,{items:DELIV,selected:f.deliverables,toggle:tog("deliverables")}),
+          E("div",{style:{marginTop:18}},E("div",{className:"sl"},"Contour Intervals"),E(CG,{items:CINT,selected:f.contourDel,toggle:tog("contourDel")})),
+          E("div",{style:{marginTop:16}},E(Ta,{label:"Special Client Requirements",value:f.specialReqs,onChange:v=>s("specialReqs",v)})),
+        ),
+        // 4: Permits
+        ()=>E(Card,{title:"Permits & Approvals",icon:"📝"},
+          E("p",{className:"hint"},"Set the current status for each permit."),
+          PERMS.map(p=>E(PR,{key:p,label:p,status:f.permitStatuses[p],onChange:v=>s("permitStatuses",{...f.permitStatuses,[p]:v})})),
+          E("div",{style:{marginTop:16}},E(Ta,{label:"Notes",value:f.permitNotes,onChange:v=>s("permitNotes",v)})),
+        ),
+        // 5: Variations
+        ()=>E(Card,{title:"Variation Triggers",icon:"⚠️"},
+          E("p",{className:"hint"},"Items requiring written variation approval before proceeding."),
+          E(CG,{items:VARS,selected:f.variations,toggle:tog("variations")}),
+          E("div",{style:{marginTop:16}},E(Fd,{label:"Variation Reference No",value:f.variationRef,onChange:v=>s("variationRef",v),placeholder:"e.g. VAR-001"})),
+        ),
+        // 6: Team & Export
+        ()=>E(React.Fragment,null,
+          E(Card,{title:"Team Allocation",icon:"👥"},
+            E("div",{className:"fr"},
+              E(Fd,{label:"Project Manager",value:f.teamPM,onChange:v=>s("teamPM",v),half:true}),
+              E(Fd,{label:"Field Team Lead",value:f.fieldLead,onChange:v=>s("fieldLead",v),half:true}),
+              E(Fd,{label:"Utility Specialist",value:f.utilitySpec,onChange:v=>s("utilitySpec",v),half:true}),
+              E(Fd,{label:"Laser Scan Operator",value:f.scanOp,onChange:v=>s("scanOp",v),half:true}),
+              E(Fd,{label:"Processing Lead",value:f.processLead,onChange:v=>s("processLead",v),half:true}),
+              E(Fd,{label:"QA Reviewer",value:f.qaReviewer,onChange:v=>s("qaReviewer",v),half:true}),
+            ),
+            E("div",{style:{marginTop:14}},E(Ta,{label:"Subcontractors (if any)",value:f.subcontractors,onChange:v=>s("subcontractors",v)})),
+          ),
+          E(Card,{title:"Authorisation",icon:"✍️"},
+            E("div",{className:"fr"},
+              E(Fd,{label:"Prepared By",value:f.preparedBy,onChange:v=>s("preparedBy",v),half:true,required:true}),
+              E(Fd,{label:"Date",value:f.prepDate,onChange:v=>s("prepDate",v),type:"date",half:true}),
+              E(Fd,{label:"Approved By (Approver Name)",value:f.approvedBy,onChange:v=>s("approvedBy",v),half:true}),
+            ),
+          ),
+          E(Card,{title:"Download PDF",icon:"📄"},
+            E("div",{className:"ib gr",style:{marginBottom:18}},
+              E("div",{style:{fontWeight:700,marginBottom:4}},"Ready to export"),
+              E("div",{style:{fontSize:12.5,color:"#4a5654"}},"Your completed form will open as a professional PDF in a new tab. Save it and email to your approver."),
+            ),
+            E("button",{type:"button",className:"btn btn-p btn-lg",onClick:handleDownload,style:{width:"100%",justifyContent:"center"}},"📄  Generate & Download PDF"),
+            E("div",{style:{borderTop:"1px solid #eef1ef",marginTop:16,paddingTop:14}},
+              E("button",{type:"button",className:"btn btn-gh",onClick:reset},"🔄  Start New Form"),
+            ),
+          ),
+        ),
+      ];
+
+      return E("div",null,
+        toast&&E("div",{className:"toast "+(toast.t==="ok"?"ok":"err")},toast.m),
+        E("div",{className:"hdr"},E("div",{className:"hdr-in"},
+          E("div",{className:"brand"},"Kahuto Pacific Limited"),
+          E("h1",null,"Project Scope & Execution"),
+          E("div",{className:"hdr-sub"},"Step "+(step+1)+" of "+STEPS.length+" — "+STEPS[step]),
+          E("div",{className:"gold-rule"}),
+        )),
+        E("div",{className:"tabs"},E("div",{className:"tabs-in"},
+          STEPS.map((l,i)=>E("button",{key:l,type:"button",className:"tab"+(step===i?" on":""),onClick:()=>setStep(i)},E("span",{className:"n"},i+1),l))
+        )),
+        E("div",{className:"wrap"},sc[step]()),
+        E("div",{className:"fnav"},E("div",{className:"fnav-in"},
+          E("button",{type:"button",className:"btn btn-gh",onClick:()=>setStep(Math.max(0,step-1)),disabled:step===0},"← Back"),
+          E("div",{style:{display:"flex",alignItems:"center",gap:8}},
+            E("span",{style:{fontSize:12,color:"#b5bfbc",fontWeight:500}},Math.round(progress)+"% complete"),
+            step<STEPS.length-1&&E("button",{type:"button",className:"btn btn-p",onClick:()=>setStep(step+1)},"Next →"),
+          ),
+        )),
+      );
+    }
+
+    ReactDOM.render(E(App),document.getElementById("root"));
+  </script>
+</body>
+</html>
